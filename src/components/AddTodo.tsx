@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { addTodo, TodoData, ITodo } from "@/data/data";
+import { useState } from "react";
+import {  ITodo } from "@/data/data";
 
 export default function AddTodo({
   onAdd,
