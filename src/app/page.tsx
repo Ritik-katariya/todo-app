@@ -6,7 +6,7 @@ import { TodoData, ITodo } from "@/data/data";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function HomeClient() {
   const [todos, setTodos] = useState<ITodo[]>(TodoData);
   const searchParams = useSearchParams();
   const filter = searchParams.get("filter") || "all";
@@ -26,7 +26,7 @@ export default function Home() {
       category,
       completed: false,
     };
-    
+
     setTodos((prev) => [...prev, newTodo]);
     TodoData.push(newTodo);
   };
@@ -69,9 +69,7 @@ export default function Home() {
     setTodos(
       TodoData.filter((todo) =>
         todo.title.toLowerCase().includes(querySearch.toLowerCase())
-      ).filter((todo) =>
-        filter === "all" ? true : todo.category === filter
-      )
+      ).filter((todo) => (filter === "all" ? true : todo.category === filter))
     );
   };
 
